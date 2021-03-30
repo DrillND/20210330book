@@ -1,27 +1,49 @@
 ﻿using System;
 
-namespace p267
+namespace ConsoleApp1
 {
-    class Test
+    class Box
     {
-        public int Multi(int x, int y)
+        private int width;
+        private int height;
+
+        public Box(int width, int height)
         {
-            return x * y;
+            if(width > 0 || height >0)
+            {
+                this.width = width;
+                this.height = height;
+            }
+            else
+            {
+                Console.WriteLine("너비와 높이는 자연수로 초기화해주세요!");
+            }
         }
 
-        public void Print()
+        public int Area() { return this.width * this.height; }
+
+        public int GetWidth() { return width; }
+        public int Getheight() { return height; }
+
+        public void SetWidth(int width)
         {
-            Console.WriteLine("print() 메서드가 호출되었습니다.");
+            if (width > 0) { this.width =width;}
+            else { Console.WriteLine("너비는 자연수를 입력해주세요"); }
         }
+
+        public void SetHeight(int height)
+        {
+            if (height > 0) { this.height = height; }
+            else { Console.WriteLine("높이는 자연수를 입력해주세요"); }
+        }
+        
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Test test = new Test();
-            Console.WriteLine(test.Multi(52, 273));
-            Console.WriteLine(test.Multi(103, 32));
-            test.Print();
+            Box box = new Box(25, 50);
+            Console.WriteLine(box.GetWidth());
         }
     }
 }
